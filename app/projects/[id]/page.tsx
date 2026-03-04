@@ -378,7 +378,8 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                       onChange={(e) => setEditData({ ...editData, aiAssistant: e.target.value })}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal focus:border-transparent outline-none"
                     >
-                      <option value="Johnny">Johnny (Default AI)</option>
+                      <option value="Johnny">Johnny (Development AI)</option>
+                      <option value="Fred">🤠 Fred (Personal & Jokes)</option>
                       <option value="Claude">Claude</option>
                       <option value="GPT-4">GPT-4</option>
                       <option value="Llama">Llama</option>
