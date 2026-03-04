@@ -24,6 +24,7 @@ interface Project {
   priority: 'low' | 'medium' | 'high'
   timeline?: string
   notes?: string
+  aiAssistant: string
 }
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {
@@ -45,10 +46,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
     nextAction: 'Apply branding colors to dashboard',
     priority: 'high',
     timeline: '2 weeks',
-    notes: 'Platform is feature-complete. Working on final polish and branding.'
+    notes: 'Platform is feature-complete. Working on final polish and branding.',
+    aiAssistant: 'Johnny'
   })
 
-  const [editData, setEditData] = useState(project)
+  const [editData, setEditData] = useState<Project>(project)
   const [newTaskTitle, setNewTaskTitle] = useState('')
   const [showAddTask, setShowAddTask] = useState(false)
 
@@ -366,6 +368,27 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                       </span>
                     ))}
                   </div>
+                </div>
+
+                <div>
+                  <label className="text-sm font-semibold text-gray-700 block mb-2">🤖 AI Assistant</label>
+                  {isEditing ? (
+                    <select
+                      value={editData.aiAssistant}
+                      onChange={(e) => setEditData({ ...editData, aiAssistant: e.target.value })}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal focus:border-transparent outline-none"
+                    >
+                      <option value="Johnny">Johnny (Default AI)</option>
+                      <option value="Claude">Claude</option>
+                      <option value="GPT-4">GPT-4</option>
+                      <option value="Llama">Llama</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  ) : (
+                    <div className="px-3 py-2 bg-teal/10 text-teal rounded-lg text-sm font-semibold">
+                      {project.aiAssistant}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

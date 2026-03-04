@@ -22,6 +22,7 @@ interface Project {
   lastUpdated: string
   nextAction?: string
   priority: 'low' | 'medium' | 'high'
+  aiAssistant: string
 }
 
 export default function Dashboard() {
@@ -42,7 +43,8 @@ export default function Dashboard() {
       team: ['You', 'Johnny'],
       lastUpdated: '2026-03-03 21:36',
       nextAction: 'Apply branding colors to dashboard',
-      priority: 'high'
+      priority: 'high',
+      aiAssistant: 'Johnny'
     },
     {
       id: '2',
@@ -58,7 +60,8 @@ export default function Dashboard() {
       team: ['You', 'Johnny'],
       lastUpdated: '2026-02-28 14:22',
       nextAction: 'Deploy to local machine with microphone',
-      priority: 'medium'
+      priority: 'medium',
+      aiAssistant: 'Johnny'
     },
     {
       id: '3',
@@ -76,7 +79,8 @@ export default function Dashboard() {
       team: ['You', 'Johnny'],
       lastUpdated: '2026-03-03 10:19',
       nextAction: 'Get API keys for ElevenLabs & OpenAI',
-      priority: 'medium'
+      priority: 'medium',
+      aiAssistant: 'Johnny'
     },
     {
       id: '4',
@@ -93,7 +97,8 @@ export default function Dashboard() {
       team: ['Johnny'],
       lastUpdated: '2026-02-28 09:47',
       nextAction: 'Activate cron job: Mon/Wed/Fri 9 AM',
-      priority: 'high'
+      priority: 'high',
+      aiAssistant: 'Johnny'
     },
     {
       id: '5',
@@ -110,7 +115,8 @@ export default function Dashboard() {
       team: ['You'],
       lastUpdated: '2026-02-28 15:33',
       nextAction: 'Sign up for Buffer Pro and connect profiles',
-      priority: 'low'
+      priority: 'low',
+      aiAssistant: 'Johnny'
     },
     {
       id: '6',
@@ -128,7 +134,8 @@ export default function Dashboard() {
       team: ['Johnny', 'You'],
       lastUpdated: '2026-03-03 21:37',
       nextAction: 'Build project detail view with full CRUD',
-      priority: 'high'
+      priority: 'high',
+      aiAssistant: 'Johnny'
     }
   ])
 
@@ -163,7 +170,8 @@ export default function Dashboard() {
         tasks: [],
         team: ['You', 'Johnny'],
         lastUpdated: new Date().toLocaleString(),
-        priority: 'medium'
+        priority: 'medium',
+        aiAssistant: 'Johnny'
       }
       setProjects([...projects, newProject])
       setNewProjectName('')
@@ -352,16 +360,23 @@ export default function Dashboard() {
                 )}
 
                 {/* Footer */}
-                <div className="flex items-center justify-between text-xs text-gray-600">
-                  <div className="flex items-center gap-1">
-                    <Users size={14} />
-                    <span>{project.team.join(', ')}</span>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs text-gray-600">
+                    <div className="flex items-center gap-1">
+                      <Users size={14} />
+                      <span>{project.team.join(', ')}</span>
+                    </div>
                   </div>
-                  <Link href={`/projects/${project.id}`}>
-                    <button className="text-teal font-semibold hover:underline flex items-center gap-1">
-                      View <ChevronRight size={14} />
-                    </button>
-                  </Link>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1 px-2 py-1 bg-white/50 rounded text-xs font-semibold text-gray-700">
+                      🤖 {project.aiAssistant}
+                    </div>
+                    <Link href={`/projects/${project.id}`}>
+                      <button className="text-teal font-semibold hover:underline flex items-center gap-1">
+                        View <ChevronRight size={14} />
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             )
