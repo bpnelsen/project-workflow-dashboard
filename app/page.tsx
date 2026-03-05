@@ -136,6 +136,26 @@ export default function Dashboard() {
       nextAction: 'Build project detail view with full CRUD',
       priority: 'high',
       aiAssistant: 'Johnny'
+    },
+    {
+      id: '7',
+      name: 'SNA Draw Request Reorganizer',
+      description: 'Excel file reorganizer for Arive/Holmes/McArthur/Fieldstone Homes',
+      status: 'in-progress',
+      progress: 100,
+      tasks: [
+        { id: 't26', title: 'Build upload interface', completed: true, dueDate: '2026-03-05' },
+        { id: 't27', title: 'Create history dashboard', completed: true, dueDate: '2026-03-05' },
+        { id: 't28', title: 'Deploy to Vercel', completed: true, dueDate: '2026-03-05' },
+        { id: 't29', title: 'Test with real Excel files', completed: false, dueDate: '2026-03-06' },
+        { id: 't30', title: 'Add Holmes Homes support', completed: false, dueDate: '2026-03-10' },
+        { id: 't31', title: 'Add McArthur/Fieldstone support', completed: false, dueDate: '2026-03-14' },
+      ],
+      team: ['You', 'Johnny'],
+      lastUpdated: '2026-03-05 06:40',
+      nextAction: 'Test with real Excel files, then add other companies',
+      priority: 'high',
+      aiAssistant: 'Johnny'
     }
   ])
 
