@@ -156,6 +156,26 @@ export default function Dashboard() {
       nextAction: 'Test with real Excel files, then add other companies',
       priority: 'high',
       aiAssistant: 'Johnny'
+    },
+    {
+      id: '8',
+      name: 'Home Builder Financial Research Platform',
+      description: 'Track 10-20 home builders with AI-generated 10-K & earnings call summaries',
+      status: 'in-progress',
+      progress: 10,
+      tasks: [
+        { id: 't32', title: 'Design database schema', completed: false, dueDate: '2026-03-06' },
+        { id: 't33', title: 'Set up Supabase tables', completed: false, dueDate: '2026-03-07' },
+        { id: 't34', title: 'Integrate Edgar API', completed: false, dueDate: '2026-03-10' },
+        { id: 't35', title: 'Integrate Yahoo Finance API', completed: false, dueDate: '2026-03-10' },
+        { id: 't36', title: 'Build stock price scraper', completed: false, dueDate: '2026-03-12' },
+        { id: 't37', title: 'Phase 1 testing & validation', completed: false, dueDate: '2026-03-14' },
+      ],
+      team: ['You', 'Johnny'],
+      lastUpdated: '2026-03-05 06:59',
+      nextAction: 'Phase 1: Build backend + database',
+      priority: 'high',
+      aiAssistant: 'Johnny'
     }
   ])
 
