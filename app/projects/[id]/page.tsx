@@ -27,10 +27,10 @@ interface Project {
   aiAssistant: string
 }
 
-export default function ProjectDetailPage({ params }: { params: { id: string } }) {
-  const [isEditing, setIsEditing] = useState(false)
-  const [project, setProject] = useState<Project>({
-    id: params.id,
+// Project data mapping
+const projectsData: { [key: string]: Project } = {
+  '1': {
+    id: '1',
     name: 'EZLY Dashboard',
     description: 'Full-featured contractor marketplace platform with homeowner and contractor workflows',
     status: 'in-progress',
@@ -48,9 +48,38 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
     timeline: '2 weeks',
     notes: 'Platform is feature-complete. Working on final polish and branding.',
     aiAssistant: 'Johnny'
-  })
+  },
+  '8': {
+    id: '8',
+    name: 'Home Builder Financial Research Platform',
+    description: 'AI-powered financial platform with 10-K summaries, earnings call analysis, market intelligence, & email alerts',
+    status: 'in-progress',
+    progress: 95,
+    tasks: [
+      { id: 't32', title: 'Phase 1: Backend infrastructure', completed: true, dueDate: '2026-03-05' },
+      { id: 't33', title: 'Phase 2: AI summaries & automation', completed: true, dueDate: '2026-03-05' },
+      { id: 't34', title: 'Phase 3: Frontend (5 pages)', completed: true, dueDate: '2026-03-05' },
+      { id: 't35', title: 'Phase 4: SendGrid alerts', completed: true, dueDate: '2026-03-05' },
+      { id: 't36', title: 'Phase 4: GitHub Actions workflows', completed: true, dueDate: '2026-03-05' },
+      { id: 't37', title: 'Phase 5: Production build', completed: true, dueDate: '2026-03-05' },
+      { id: 't38', title: 'Phase 5: Vercel deployment (live)', completed: true, dueDate: '2026-03-05' },
+      { id: 't39', title: 'Phase 5: Testing & monitoring', completed: false, dueDate: '2026-03-12' },
+    ],
+    team: ['You', 'Johnny'],
+    lastUpdated: '2026-03-05 11:50',
+    nextAction: 'Monitor live deployment at https://homebuilder.vercel.app',
+    priority: 'high',
+    timeline: '1 week',
+    notes: 'Production-ready. Fixing Tailwind color compilation for Navy/Teal branding.',
+    aiAssistant: 'Johnny'
+  }
+}
 
-  const [editData, setEditData] = useState<Project>(project)
+export default function ProjectDetailPage({ params }: { params: { id: string } }) {
+  const [isEditing, setIsEditing] = useState(false)
+  const [project, setProject] = useState<Project>(projectsData[params.id] || projectsData['1'])
+
+  const [editData, setEditData] = useState<Project>(projectsData[params.id] || projectsData['1'])
   const [newTaskTitle, setNewTaskTitle] = useState('')
   const [showAddTask, setShowAddTask] = useState(false)
 
